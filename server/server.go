@@ -2,7 +2,9 @@ package main
 
 import (
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/neerajbg/go-fiber-blog/database"
+	"github.com/neerajbg/go-fiber-blog/router"
 )
 
 func init() {
@@ -22,11 +24,9 @@ func main() {
 
 	app := fiber.New()
 
-	app.Get("/", func(c *fiber.Ctx) error {
+	app.Use(logger.New())
 
-		return c.JSON(
-			fiber.Map{"message": "Hello World!"},
-		)
-	})
+	router.SetupRoutes(app)
+
 	app.Listen(":8000")
 }
