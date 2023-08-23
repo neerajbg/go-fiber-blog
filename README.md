@@ -6,4 +6,5 @@ Code along for my YouTube video series on web development using React and Go Fib
 
 After cloning repository, rename .env.example to .env
 
-To install dependency, run go mod tidy
+To install dependency, run 
+```go mod tidy```
