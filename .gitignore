@@ -32,4 +32,5 @@ dist
 .vscode
 .vscode-test
 
+tmp/
 go.sum

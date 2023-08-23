@@ -1,13 +1,20 @@
 package main
 
 import (
+	"log"
+
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
+	"github.com/joho/godotenv"
 	"github.com/neerajbg/go-fiber-blog/database"
 	"github.com/neerajbg/go-fiber-blog/router"
 )
 
 func init() {
+
+	if err := godotenv.Load(".env"); err != nil {
+		log.Fatal("Error in loading .env file.")
+	}
 
 	database.ConnectDB()
 }
