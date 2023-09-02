@@ -8,6 +8,8 @@ import (
 	"github.com/joho/godotenv"
 	"github.com/neerajbg/go-fiber-blog/database"
 	"github.com/neerajbg/go-fiber-blog/router"
+
+	"github.com/gofiber/fiber/v2/middleware/cors"
 )
 
 func init() {
@@ -30,6 +32,11 @@ func main() {
 	defer sqlDb.Close()
 
 	app := fiber.New()
+
+	app.Use(cors.New(cors.Config{
+		AllowOrigins: "*",
+		AllowHeaders: "Origin, Content-Type, Accept",
+	}))
 
 	app.Use(logger.New())
 
