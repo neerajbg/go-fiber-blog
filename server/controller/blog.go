@@ -2,6 +2,7 @@ package controller
 
 import (
 	"log"
+	"time"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/neerajbg/go-fiber-blog/database"
@@ -15,6 +16,9 @@ func BlogList(c *fiber.Ctx) error {
 		"statusText": "Ok",
 		"msg":        "Blog List",
 	}
+
+	// Sleep to add some delay in API response
+	time.Sleep(time.Millisecond * 1500)
 
 	db := database.DBConn
 

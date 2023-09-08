@@ -1,3 +1,62 @@
+.header {
+  width: 100%;
+  z-index: 1017;
+  background: #850c62;
+  background: linear-gradient(90deg, #850c62, #f80759);
+  padding: 1em;
+  color: #fff;
+  height: 10vh;
+}
+.menu {
+  padding-left: 0;
+}
+
+.menu a {
+  color: #850c62;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.footer {
+  width: 100%;
+  z-index: 1017;
+  background: #850c62;
+  background: linear-gradient(90deg, #850c62, #f80759);
+  padding: 1em;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-height: 20vh;
+}
+.footer a {
+  color: #fff;
+}
+
+.fab {
+  padding-right: 10px;
+}
+ul li {
+  display: inline-block;
+  padding: 1em;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+.spinner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 5em;
+}
+
+.spinner div {
+  padding: 5em;
+}
+
 .box {
   border: solid 1px #000;
   margin: 5px;

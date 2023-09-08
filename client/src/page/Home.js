@@ -6,8 +6,12 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+import Spinner from "react-bootstrap/Spinner";
+
 const Home = () => {
   const [apiData, setApiData] = useState(false);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -19,7 +23,10 @@ const Home = () => {
             setApiData(response?.data?.blog_records);
           }
         }
+
+        setLoading(false);
       } catch (error) {
+        setLoading(false);
         console.log(error.response);
       }
     };
@@ -29,18 +36,23 @@ const Home = () => {
   }, []);
 
   console.log(apiData);
-  return (
-    <Container>
-      <Row>
-        <Col xs="12" className="py-2">
-          <h1 className="text-center ">
-            React Application with Go fiber Backend
-          </h1>
-        </Col>
 
+  if (loading) {
+    return (
+      <>
+        <Container className="spinner">
+          <Spinner animation="grow" />
+        </Container>
+      </>
+    );
+  }
+
+  return (
+    <Container className="py-2">
+      <Row>
         {apiData &&
           apiData.map((record, index) => (
-            <Col key={index} xs="4" className="py-5 box">
+            <Col key={index} xs="3" className="py-5 box">
               <div className="title">
                 <Link to={`blog/${record.id}`}> {record.title}</Link>
               </div>
