@@ -50,6 +50,11 @@ const Home = () => {
   return (
     <Container className="py-2">
       <Row>
+        <h3>
+          <Link to="add" className="btn btn-primary">
+            Add New
+          </Link>
+        </h3>
         {apiData &&
           apiData.map((record, index) => (
             <Col key={index} xs="3" className="py-5 box">

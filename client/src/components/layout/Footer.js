@@ -23,26 +23,26 @@ const Footer = () => {
           </ul>
         </Col>
         <Col xs="6">
-          <div class="col text-center text-lg-left pt-3">
-            <a class="" href="/contact/">
+          <div className="col text-center text-lg-left pt-3">
+            <a className="" href="/contact/">
               <h3>Connect With Us</h3>
             </a>
-            <div class="social-links pt-1">
+            <div className="social-links pt-1">
               <a
                 target="_blank"
                 href="https://www.youtube.com/@growyourskill1"
-                class="youtube"
+                className="youtube"
                 title="Connect on Youtube"
               >
-                <i class="fab fa-youtube fa-3x"></i>
+                <i className="fab fa-youtube fa-3x"></i>
               </a>
               <a
                 target="_blank"
                 href="https://github.com/neerajbg"
-                class="Github"
+                className="Github"
                 title="Connect on Github"
               >
-                <i class="fab fa-github fa-3x"></i>
+                <i className="fab fa-github fa-3x"></i>
               </a>
             </div>
           </div>
