@@ -6,6 +6,7 @@ import Blog from "./page/Blog";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import Add from "./page/Add";
+import Edit from "./page/Edit";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/add" element={<Add />} />
+        <Route path="/edit/:id" element={<Edit />} />
         <Route path="/blog/:id" element={<Blog />} />
       </Routes>
       <Footer />
