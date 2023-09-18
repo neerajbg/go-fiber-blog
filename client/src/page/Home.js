@@ -71,7 +71,7 @@ const Home = () => {
                   <i className="fa fa-solid fa-pencil fa-2x" />
                 </Link>
                 &nbsp;
-                <Link to="">
+                <Link to={`delete/${record.id}`}>
                   <i className="fa fa-solid fa-trash fa-2x" />
                 </Link>
               </div>
