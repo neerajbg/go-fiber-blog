@@ -34,3 +34,4 @@ dist
 
 tmp/
 go.sum
+static/
