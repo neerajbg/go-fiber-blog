@@ -35,3 +35,4 @@ dist
 tmp/
 go.sum
 static/
+build/
