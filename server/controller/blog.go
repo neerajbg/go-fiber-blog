@@ -2,6 +2,7 @@ package controller
 
 import (
 	"log"
+	"os"
 	"time"
 
 	"github.com/gofiber/fiber/v2"
@@ -196,6 +197,14 @@ func BlogDelete(c *fiber.Ctx) error {
 		context["msg"] = "Record not Found."
 
 		return c.JSON(context)
+	}
+
+	// Remove image
+	filename := record.Image
+
+	err := os.Remove(filename)
+	if err != nil {
+		log.Println("Error in deleting file.", err)
 	}
 
 	result := database.DBConn.Delete(record)

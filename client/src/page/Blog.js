@@ -33,8 +33,11 @@ const Blog = () => {
   return (
     <Container>
       <Row>
-        <Col xs="12">
+        <Col xs="6">
           <h1>{apiData.title}</h1>
+        </Col>
+        <Col xs="6">
+          <img width="250" height="250" src={`${process.env.REACT_APP_API_ROOT}/${apiData.image}`} />
         </Col>
         <Col xs="12">
           <p>{apiData.post}</p>

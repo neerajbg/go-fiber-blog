@@ -62,10 +62,14 @@ const Home = () => {
 
         {apiData &&
           apiData.map((record, index) => (
-            <Col key={index} xs="3" className="py-5 box">
+            <Col key={index} xs="3" className="py-2 box">
+              <div className="img-box justify-content-center py-2 mb-3">
+                <img width="150" height="150" src={`${process.env.REACT_APP_API_ROOT}/${record.image}`} />
+              </div>
               <div className="title">
                 <Link to={`blog/${record.id}`}> {record.title}</Link>
               </div>
+              
               <div>
                 <Link to={`edit/${record.id}`}>
                   <i className="fa fa-solid fa-pencil fa-2x" />

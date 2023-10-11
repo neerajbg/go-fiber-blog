@@ -73,3 +73,11 @@ label {
 .error {
   color: red;
 }
+
+.img-box{
+  border: 1px solid red;
+  display: flex;
+  align-content: center;
+  padding: 1em;
+  box-shadow: 0px 2px 10px #555553;
+}
