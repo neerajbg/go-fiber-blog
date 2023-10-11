@@ -43,9 +43,16 @@ const Edit = () => {
 
   const saveForm = async (data) => {
     setLoading(true);
+
+    data.file = data.image[0];
+    data.image = null;
     try {
       const apiUrl = process.env.REACT_APP_API_ROOT + "/" + params.id;
-      const response = await axios.put(apiUrl, data);
+      const response = await axios.put(apiUrl, data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        }
+      });
 
       if (response.status === 200) {
         console.log(response);
@@ -113,6 +120,15 @@ const Edit = () => {
                   <div className="error">{errors.post.message}</div>
                 )}
               </Col>
+              <Col xs="12" className="py-3">
+              <label>Image</label>
+              <input
+                type="file"
+                className={`${errors.image && "error"}`}
+                placeholder="Please enter content"
+                {...register("image")}
+              />
+            </Col>
               <Col>
                 <button type="submit">Save</button>
               </Col>

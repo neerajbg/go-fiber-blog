@@ -141,6 +141,23 @@ func BlogUpdate(c *fiber.Ctx) error {
 		c.Status(400)
 		return c.JSON(context)
 	}
+	// File upload
+	file, err := c.FormFile("file")
+
+	if err != nil {
+		log.Println("Error in file upload.", err)
+	}
+
+	if file.Size > 0 {
+		filename := "static/uploads/" + file.Filename
+
+		if err := c.SaveFile(file, filename); err != nil {
+			log.Println("Error in file uploading...", err)
+		}
+
+		// Set image path to the struct
+		record.Image = filename
+	}
 
 	result := database.DBConn.Save(record)
 
