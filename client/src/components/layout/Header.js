@@ -2,7 +2,11 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+import { useSelector } from "react-redux";
+
 const Header = () => {
+  const { loggedIn, user } = useSelector((state) => state.auth);
+
   return (
     <>
       <Container fluid className="container-fluid header">
@@ -26,7 +30,11 @@ const Header = () => {
               <Link to="/contact">Contact</Link>
             </li>
             <li>
-              <Link to="/login">Login</Link>
+              {loggedIn ? (
+                <>Welcome back {user.email}</>
+              ) : (
+                <Link to="/login">Login</Link>
+              )}
             </li>
           </ul>
         </div>
