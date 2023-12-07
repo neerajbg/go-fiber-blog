@@ -11,8 +11,49 @@ import Delete from "./page/Delete";
 import Login from "./page/Login";
 import About from "./page/About";
 import Contact from "./page/Contact";
+import { useEffect } from "react";
+import axios from "axios";
 
 function App() {
+  const token = window.localStorage.getItem("token");
+
+  useEffect(() => {
+    const timestamp = 1000 * 60 * 3 - 5;
+    // const timestamp = 10000;
+
+    let interval = setInterval(() => {
+      if (token !== null) {
+        updateToken();
+      }
+    }, timestamp);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [token]);
+
+  const updateToken = async () => {
+    try {
+      const apiUrl = `${process.env.REACT_APP_AUTH_API}/private/refreshtoken`;
+
+      const response = await axios.get(apiUrl, {
+        headers: {
+          token: window.localStorage.getItem("token"),
+        },
+      });
+
+      if (response.status === 200) {
+        const data = await response.data;
+
+        window.localStorage.setItem("token", data.token);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
+    console.log("Inside update token");
+  };
+
   return (
     <>
       <Header />
