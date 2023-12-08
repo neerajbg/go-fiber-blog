@@ -31,7 +31,10 @@ const Header = () => {
             </li>
             <li>
               {loggedIn ? (
-                <>Welcome back {user.email}</>
+                <>
+                  Welcome back {user.email}
+                  <Link to="/logout">&nbsp; &nbsp; Logout</Link>
+                </>
               ) : (
                 <Link to="/login">Login</Link>
               )}

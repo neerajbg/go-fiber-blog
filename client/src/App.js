@@ -13,6 +13,7 @@ import About from "./page/About";
 import Contact from "./page/Contact";
 import { useEffect } from "react";
 import axios from "axios";
+import Logout from "./page/Logout";
 
 function App() {
   const token = window.localStorage.getItem("token");
@@ -49,6 +50,8 @@ function App() {
       }
     } catch (error) {
       console.log(error);
+
+      window.localStorage.removeItem("token");
     }
 
     console.log("Inside update token");
@@ -64,6 +67,7 @@ function App() {
         <Route path="/delete/:id" element={<Delete />} />
         <Route path="/blog/:id" element={<Blog />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
